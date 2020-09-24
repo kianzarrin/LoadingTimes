@@ -1,0 +1,19 @@
+bug: reseting slope to default is problematic.
+bug: when I select rev0 station tracks, corner offset changes.
+
+- options for default universal behaviours:
+    - auto embankment for curved segments.
+
+
+- open and close left and right table.
+- new Corner table organisation
+
+- test selecting nodes on top of another road (FRT + anarchy + moveIT). (can't reproduce)
+
+- corner offset to increase chances of train track connection.
+- fix the orientation of asym road
+- support for asymetric textures
+- lod support (not now)
+
+- Toggle Crossing tool mod activatble from UUI.
+
