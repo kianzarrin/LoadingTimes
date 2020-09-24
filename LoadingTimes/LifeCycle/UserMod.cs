@@ -10,31 +10,25 @@ namespace LoadingTimes.LifeCycle
     {
         public static Version ModVersion => typeof(NodeControllerMod).Assembly.GetName().Version;
         public static string VersionString => ModVersion.ToString(2);
-        public string Name => "Node controller " + VersionString;
+        public string Name => "Loading Times " + VersionString;
         public string Description => "control Road/junction transitions";
+        public const string HARMONY_ID = "Kian.CS.LoadingTimes";
 
         [UsedImplicitly]
         public void OnEnabled()
         {
-            KianCommons.UI.TextureUtil.EmbededResources = false;
-            HarmonyHelper.EnsureHarmonyInstalled();   
-            if (!HelpersExtensions.InStartup)
-                LifeCycle.Load();
-#if DEBUG
-            //HarmonyExtension.InstallHarmony(); // Only for testing
-#endif
+            HarmonyHelper.EnsureHarmonyInstalled();
+            HarmonyHelper.DoOnHarmonyReady( () =>HarmonyUtil.InstallHarmony(HARMONY_ID) );
         }
 
         [UsedImplicitly]
         public void OnDisabled()
         {
-            LifeCycle.UnLoad();
+            HarmonyUtil.UninstallHarmony(HARMONY_ID);
         }
 
-        [UsedImplicitly]
-        public void OnSettingsUI(UIHelperBase helper) {
-            GUI.Settings.OnSettingsUI(helper);
-        }
-
+        //[UsedImplicitly]
+        //public void OnSettingsUI(UIHelperBase helper) {
+        //}
     }
 }

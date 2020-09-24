@@ -3,7 +3,6 @@ namespace LoadingTimes.GUI {
     using ColossalFramework.UI;
     using ICities;
     using KianCommons;
-    using LoadingTimes.Tool;
     using System;
     using static KianCommons.HelpersExtensions;
 
